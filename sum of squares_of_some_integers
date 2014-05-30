@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <conio.h>
+int input (int n, int size)
+{
+	int a;
+	if(n<size)
+	{
+		printf("Please int number next:");
+		scanf("%d",&a);// input an integer
+		if(a>=0)
+			return input(n+1,size)+a*a;
+		else
+			return input(n+1,size);// calculate the sum of squares of the integers excepting negatives
+	}
+	else
+	{
+		return 0;// end calculate
+	}
+}
+int result_case_n(int m, int size_case)
+{
+	if(m>0)
+		printf("\nEnd test case %d\n",m);// end test case m
+	if(m<size_case)
+	{
+		int size,result;// 
+		printf("Please input size of int array:");
+		scanf("%d",&size);
+		result= input (0,size);// input intergers
+		printf("Sum of squares of the integers: %d",result);
+		return result_case_n(m+1,size_case);
+	}
+}
+void main()
+{
+	int N;
+	printf("Please input N test cases(1 <= N <= 100):");
+	scanf("%d",&N);
+	result_case_n(0,N);// calculate sum of square of some intergers
+}
